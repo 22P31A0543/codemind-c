@@ -1,12 +1,16 @@
 #include<stdio.h>
 int main()
 {
-    int n,m,gcd,i;
-    scanf("%d%d",&n,&m);
-    for(i=1;i<=n&&i<=m;i++)
+    int a,b;
+    scanf("%d%d",&a,&b);
+    int i,gcd;
+    for(i=1;i<=a && i<=b;i++)
     {
-    if(n%i==0&&m%i==0)
-    gcd=i;
+        if(a%i==0&&b%i==0)
+        {
+            gcd=i;
+        }
     }
     printf("%d",gcd);
+    return 0;
 }
