@@ -1,51 +1,64 @@
 #include<stdio.h>
-int ispal(int x)
+int large(int a)
 {
-	int y,d,res=0;
-	y=x;
-	while(y)
+	int b,i,s,r,lar;
+	for(b=a+1;b>=0;b++)
 	{
-		d=y%10;
-		res=res*10+d;
-		y=y/10;	
+	    i=b;
+		s=0;
+		while(i!=0)
+		{
+		    r=i%10;
+		    s=s*10+r;
+		    i=i/10;
+		}
+		if(s==b)
+		{
+			lar=s;
+			break;
+		}
 	}
-	if(x==res)
-	{
-		return 1;
+	return lar;
+}
+int small(int a)
+{
+	int b,i,s,r,sma;
+    for(b=a-1;b>0;b--)
+    {
+        i=b;
+	    s=0;
+        while(i!=0)
+		{
+		    r=i%10;
+		    s=s*10+r;
+		    i=i/10;
+		}
+        if(s==b)
+	    {
+		    sma=s;
+		    break;
+	    }	    
 	}
-	else
-	{
-		return 0;
-	}
+	return sma;
 }
 int main()
 {
-	int n,pp,np;
-	scanf("%d",&n);
-	for(pp=n-1;;pp-=1)
+	int a,b,c,d,e,f,min;
+	scanf("%d",&a);
+	c=large(a);
+	b=small(a);
+    e=c-a;
+	f=a-b;
+	if(e==f)
 	{
-		if(ispal(pp))
-		{
-			break;
-		}
+		printf("%d %d",b,c);
 	}
-	for(np=n+1;;np+=1)
+    else if(e<f)
 	{
-		if(ispal(np))
-		{
-			break;
-		}
+		printf("%d",c);
 	}
-	if(n-pp>np-n)
+	else
 	{
-		printf("%d",np);
-	}
-	if(n-pp<np-n)
-	{
-		printf("%d",pp);
-	}
-	if(n-pp==np-n)
-	{
-		printf("%d %d",pp,np);
+	    printf("%d",b);
 	}
 }
